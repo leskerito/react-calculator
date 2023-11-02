@@ -1,9 +1,8 @@
 import React from 'react'
 
-function Button({type, buttonHandler, show, id}) {
-  console.log(show)
+function Button({type, buttonHandler, show, idName}) {
   return ( 
-    <button className={'button '+ type} id={id} onClick={() => buttonHandler(show)}>
+    <button className={type} id={idName} onClick={() => buttonHandler(show)}>
       {show}
     </button>
   )

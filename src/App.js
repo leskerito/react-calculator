@@ -9,6 +9,7 @@ function App() {
         Welcome to React's magnificent calculator!
       </h1>
       <Calculator />
+      {console.log(document.getElementById("add"))}
     </div>
   );
 }

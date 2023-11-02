@@ -11,7 +11,7 @@ export const calc = {
     "eight": "8",
     "nine": "9",
     "add": "+",
-    "substract": "-",
+    "subtract": "-",
     "multiply": "*",
     "divide": "/",
     "clear": "C",

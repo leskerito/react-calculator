@@ -3,6 +3,7 @@ import Buttons from './Buttons';
 
 export default function Calculator() {
     const [currentExpression, setCurrentExpression] = useState("0");
+    const [latestCalculation, setLatestCalculation] = useState(0);
 
     const evaluate = (expression) => {
         try {
@@ -18,11 +19,15 @@ export default function Calculator() {
                 if(currentExpression.includes('.')){
                     alert("What would that even mean? No double '.' please!");
                     return
+                } 
+                else if(currentExpression[-1] === '.'){ 
+                    setCurrentExpression(currentExpression+'0');
+                    return
                 }
                 currentExpression === "0" ? setCurrentExpression(entry) : setCurrentExpression(currentExpression+entry);
                 break;
             case '=':
-                setCurrentExpression(String(evaluate(currentExpression)));
+                setCurrentExpression(evaluate(currentExpression));
                 break;
             case 'C':
                 setCurrentExpression("0");
@@ -44,9 +49,9 @@ export default function Calculator() {
     <div>
         Calculator
         <br />
-        <div id="display">
-            <h1>{currentExpression}</h1>
-        </div>
+        <h1 id="display">
+            {currentExpression}
+        </h1>
         <Buttons divType="number" buttonHandler={handleButton} />
         <Buttons divType="operators" buttonHandler={handleButton} />
         <br />
