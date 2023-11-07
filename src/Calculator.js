@@ -79,6 +79,9 @@ export default function Calculator() {
         */
 
         switch(entry){
+            case '.':
+                if(!currentExpression.includes('.')) setCurrentExpression(prevExpression => prevExpression+entry);
+                break;
             case 'E':
                 currentExpression.length > 1 ? setCurrentExpression(currentExpression.slice(0, -1)) : setCurrentExpression('0');
                 break;
