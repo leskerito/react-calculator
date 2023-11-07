@@ -7,15 +7,19 @@ export default function Calculator() {
 
     const sanitize = (dirtyArray) => {
         let expArray = [...dirtyArray];
-        for (let exp in expArray){
-            if (isNumber(expArray[exp])){
-                expArray[exp] = expArray[exp].replace(/[[.]{2,}/, '.');
-                if(expArray[exp][0] === '0' && expArray[exp].length > 1) expArray[exp] = expArray[exp].slice(1);
-            } else if(isOperator(expArray[exp])){
-
-            } else {
-                return [];
+        for (let i = 0; i < expArray.length; i++){
+            if (isNumber(expArray[i])){
+                    expArray[i] = expArray[i].replace(/[[.]{2,}/, '.');
+                    if(expArray[i][0] === '0' && expArray[i].length > 1) expArray[i] = expArray[i].slice(1);
+            } else if(isOperator(expArray[i])){
+                if(isOperator(expArray[i+1])){
+                    if(expArray[i+1] === '-'){
+                        if(isOperator(expArray[i+2])) expArray.splice(i, 1);
+                    }
+                }
             }
+            else 
+                return [];
         }
         return expArray;
     }
