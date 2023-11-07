@@ -41,42 +41,6 @@ export default function Calculator() {
     }
 
     const handleButton = (entry) => {
-        
-        /*
-        switch(entry){
-            case '.':
-                if(currentExpression[currentExpression.length-1] !== '.') setCurrentExpression(prevExpression => prevExpression+entry)
-
-                break;
-            case 'E':
-                currentExpression.length > 1 
-                ? setCurrentExpression(prevExpression => prevExpression.slice(0, -1))
-                : setCurrentExpression('0');
-                break;
-            case 'C':
-                setCurrentExpression('0');
-                break;
-            case '=':
-                setCurrentExpression(() => evaluate(currentExpression));
-                break;
-            case '/':
-            case '*':
-            case '-':
-            case '+':
-                setExpElements(expElements => expElements.push(currentExpression))
-                setCurrentExpression(prevExpression => prevExpression+entry)
-                break;
-            case '0':
-                currentExpression === '0' ? setCurrentExpression('0') : setCurrentExpression(prevExpression => prevExpression+entry)
-                break;
-            default:
-                if(currentExpression === "0")
-                    setCurrentExpression(entry)
-                else
-                    setCurrentExpression(prevExpression => prevExpression + entry)
-                break;
-        }
-        */
 
         switch(entry){
             case '.':
@@ -101,9 +65,9 @@ export default function Calculator() {
             case '=':
                 let eqExp = [].concat(expElements);
                 eqExp.push(currentExpression);
-                eqExp = [evaluate(eqExp)]
-                setExpElements(eqExp)
-                setCurrentExpression(eqExp[0]);
+                let exp = evaluate(eqExp)
+                setExpElements([])
+                setCurrentExpression(exp);
                 break;
             default:
                 if(currentExpression === '0') setCurrentExpression(entry) 
