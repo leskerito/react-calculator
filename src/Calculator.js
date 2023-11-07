@@ -9,7 +9,12 @@ export default function Calculator() {
         let expArray = [...dirtyArray];
         for (let exp in expArray){
             if (isNumber(expArray[exp])){
-                expArray[exp].replace(/[^0[1-9]]/, '');
+                expArray[exp] = expArray[exp].replace(/[[.]{2,}/, '.');
+                if(expArray[exp][0] === '0' && expArray[exp].length > 1) expArray[exp] = expArray[exp].slice(1);
+            } else if(isOperator(expArray[exp])){
+
+            } else {
+                return [];
             }
         }
         return expArray;
@@ -17,7 +22,6 @@ export default function Calculator() {
 
     const evaluate = (dirtyArray) => {
         if(dirtyArray === undefined) return '0'
-        console.log(dirtyArray)
         let cleanArray = sanitize(dirtyArray);
         const expression = cleanArray.join('');
         try {
@@ -33,7 +37,7 @@ export default function Calculator() {
     }
 
     const isNumber = (entry) => {
-        return entry.match(/[0-9]+/g);
+        return /^[0-9]+([.]+[0-9])*$/.test(entry);
     }
 
     const handleButton = (entry) => {
