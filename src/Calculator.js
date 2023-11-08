@@ -26,7 +26,6 @@ export default function Calculator() {
     const evaluate = (dirtyArray) => {
         if(dirtyArray === undefined) return '0'
         let cleanArray = sanitize(dirtyArray);
-        console.log(cleanArray)
         const expression = cleanArray.join('');
         try {
             return String(eval(expression))
@@ -45,7 +44,7 @@ export default function Calculator() {
     }
 
     const handleButton = (entry) => {
-
+        console.log(currentExpression)
         switch(entry){
             case '.':
                 if(!currentExpression.includes('.')) setCurrentExpression(prevExpression => prevExpression+entry);
@@ -76,10 +75,13 @@ export default function Calculator() {
             default:
                 if(currentExpression === '0') setCurrentExpression(entry) 
                 else if (isOperator(currentExpression)){
-                    let opExp = [].concat(expElements);
-                    opExp.push(currentExpression);
-                    setExpElements(opExp);
-                    setCurrentExpression(entry);
+                    if(currentExpression === '-') setCurrentExpression(prevExpression => prevExpression+entry);
+                    else {
+                        let opExp = [].concat(expElements);
+                        opExp.push(currentExpression);
+                        setExpElements(opExp);
+                        setCurrentExpression(entry);
+                    }
                     break;
                 } else setCurrentExpression(prevExpression => prevExpression+entry);
                 break;
