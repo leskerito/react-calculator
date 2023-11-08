@@ -44,7 +44,6 @@ export default function Calculator() {
     }
 
     const handleButton = (entry) => {
-        console.log(currentExpression)
         switch(entry){
             case '.':
                 if(!currentExpression.includes('.')) setCurrentExpression(prevExpression => prevExpression+entry);
