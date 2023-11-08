@@ -13,9 +13,8 @@ export default function Calculator() {
                     if(expArray[i][0] === '0' && expArray[i].length > 1) expArray[i] = expArray[i].slice(1);
             } else if(isOperator(expArray[i])){
                 if(isOperator(expArray[i+1])){
-                    if(expArray[i+1] === '-'){
-                        if(isOperator(expArray[i+2])) expArray.splice(i, 1);
-                    }
+                    if(expArray[i+1] !== '-') expArray.splice(i, 1);
+                    else if(isOperator(expArray[i+2])) expArray.splice(i, 2)
                 }
             }
             else 
@@ -27,6 +26,7 @@ export default function Calculator() {
     const evaluate = (dirtyArray) => {
         if(dirtyArray === undefined) return '0'
         let cleanArray = sanitize(dirtyArray);
+        console.log(cleanArray)
         const expression = cleanArray.join('');
         try {
             return String(eval(expression))
@@ -41,7 +41,7 @@ export default function Calculator() {
     }
 
     const isNumber = (entry) => {
-        return /^[0-9]+([.]+[0-9])*$/.test(entry);
+        return /^[-]{0,1}[0-9]+([.]+[0-9])*$/.test(entry);
     }
 
     const handleButton = (entry) => {
@@ -57,8 +57,8 @@ export default function Calculator() {
                 setCurrentExpression('0');
                 setExpElements([]);
                 break;
-            case '+':
             case '-':
+            case '+':
             case '*':
             case '/':
                 let opExp = [].concat(expElements);
