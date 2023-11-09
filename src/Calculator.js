@@ -89,16 +89,15 @@ export default function Calculator() {
     
 
   return (
-    <div>
-        Calculator
+    <div id="calculator">
         <br />
         <h1 id="display">
             {currentExpression}
         </h1>
-        <Buttons divType="number" buttonHandler={handleButton} />
-        <Buttons divType="operators" buttonHandler={handleButton} />
-        <br />
-        Calculator end
+        <div id='buttons-container'>
+            <Buttons divType="number" buttonHandler={handleButton} />
+            <Buttons divType="operators" buttonHandler={handleButton} />
+        </div>
     </div>
   )
 }

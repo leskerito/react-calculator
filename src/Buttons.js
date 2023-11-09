@@ -18,7 +18,7 @@ function Buttons({ divType, buttonHandler }) {
   }
 
   return (
-    <div className={divType+"-div"}>
+    <div id={divType+"-div"}>
       {button}
     </div>
   )
