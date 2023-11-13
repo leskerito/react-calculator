@@ -28,7 +28,10 @@ export default function Calculator() {
         try {
             let cleanArray = sanitize(dirtyArray);
             const expression = cleanArray.join('');
-            return String(eval(expression))
+            let result = String(eval(expression))
+            if(result === undefined)
+                return cleanArray.join('')
+            return result
         } catch (TypeError) {
             alert("Are you sure about that expression?")
             return "0"
@@ -40,7 +43,7 @@ export default function Calculator() {
     }
 
     const isNumber = (entry) => {
-        return /^[-]{0,1}[0-9]+([.]+[0-9])*$/.test(entry);
+        return /^[-]{0,1}[0-9]+([.]+[0-9]+)*$/.test(entry);
     }
 
     const typeHandler = (event) => {
@@ -61,7 +64,7 @@ export default function Calculator() {
                 handleButton('.');
                 break;
             default:
-                console.log(key);
+                console.log(":thinkemoji:");
         }
     }
 

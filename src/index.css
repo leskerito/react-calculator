@@ -76,7 +76,7 @@ code {
 }
 
 #calculator {
-  margin: 10px auto;
+  margin: auto;
   padding: 5px;
   background-color: #1C4154;
   max-width: 460px;
@@ -116,6 +116,7 @@ code {
   flex: 0 0 auto;
   margin: 12px;
   border-radius: 70px;
+  transition: border 0.1s;
 }
 
 button {
@@ -123,12 +124,11 @@ button {
   color: #C3C3C3;
   border: 0;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.144);
-  transition: border 0.2s;
+  transition: border 0.1s;
   font-size: 1.2em;
   font-weight: bold;
 }
 button:hover {
-  border: 1px solid #C3C3C3;
   box-shadow: none;
 }
 button:active {
@@ -154,4 +154,66 @@ button:active {
 #equals {
   color: #252627;
   background-color: #4497C1;
+}
+
+@media screen and (max-width: 450px) and (max-height: 950px) {
+  #calculator {
+    max-width: 450px;
+    width: 100vw;
+    height: 100vh;
+    max-height: 950px;
+    margin: 0;
+    padding: 0;
+    font-size: 1.3em;
+  }
+  #operators-div {
+    margin: 0;
+    padding: 0;
+    width: 30%;
+  }
+  .operator {
+    margin: 0;
+    border-radius: 0;
+    background-color: #0E212A;
+    padding: 0;
+  }
+  .number {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background-color: #0E212A;
+    width: 33%;
+    height: 25%;
+    font-size: 1.5em;
+  }
+  .number:active {
+    border: 1px solid #C3C3C3;
+  }
+  #number-div {
+    display: flex;
+    align-content: space-between;
+    margin: 0;
+    padding: 0;
+    width: 70%;
+  }
+  #zero {
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    color: #4497C1;
+    background-color: #C3C3C3;
+    width: 67%;
+  }
+  #zero:active {
+    border: 3px solid #4497C1;
+  }
+  #display {
+    border-bottom: 0;
+  }
+  button:active {
+    border: 3px solid #4497C1;
+  }
+  #equals:active {
+    border: 3px solid #1C4154;
+  }
 }/*# sourceMappingURL=index.css.map */

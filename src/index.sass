@@ -20,7 +20,7 @@ code
 
 
 #calculator
-    margin: 10px auto
+    margin: auto
     padding: 5px
     background-color: $primary
     max-width: 460px
@@ -56,18 +56,18 @@ code
     flex: 0 0 auto
     margin: 12px
     border-radius: 70px
+    transition: border 0.1s 
 
 button
     background-color: $secondary
     color: $text-color
     border: 0
     box-shadow: 3px 3px rgba(0, 0, 0, 0.144)
-    transition: border 0.2s 
+    transition: border 0.1s 
     font-size: 1.2em
     font-weight: bold
 
     &:hover
-        border: 1px solid $text-color
         box-shadow: none
     
     &:active
@@ -90,3 +90,64 @@ button
 #equals
     color: #252627
     background-color: $accent
+
+@media screen and (max-width: 450px) and (max-height: 950px)
+
+    #calculator
+        max-width: 450px
+        width: 100vw
+        height: 100vh
+        max-height: 950px
+        margin: 0
+        padding: 0
+        font-size: 1.3em
+
+    #operators-div
+        margin: 0
+        padding: 0
+        width: 30%
+
+    .operator
+        margin: 0
+        border-radius: 0
+        background-color: $secondary
+        padding: 0
+
+    .number
+        margin: 0
+        padding: 0
+        border-radius: 0
+        background-color: $secondary
+        width: 33%
+        height: 25%
+        font-size: 1.5em
+
+        &:active
+            border: 1px solid $text-color
+    
+    #number-div
+        display: flex
+        align-content: space-between
+        margin: 0
+        padding: 0
+        width: 70%
+    
+    #zero
+        margin: 0
+        padding: 0
+        border-radius: 0
+        color: $accent
+        background-color: $text-color
+        width: 67%
+
+        &:active
+            border: 3px solid $accent
+            
+    #display
+        border-bottom: 0
+
+    button:active
+        border: 3px solid $accent
+        
+    #equals:active
+        border: 3px solid $primary
