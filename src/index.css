@@ -1,10 +1,72 @@
+#zero {
+  order: 9;
+  width: 60%;
+  border-radius: 50px;
+}
+
+#decimal {
+  order: 10;
+}
+
+#one {
+  order: 6;
+}
+
+#two {
+  order: 7;
+}
+
+#three {
+  order: 8;
+}
+
+#four {
+  order: 3;
+}
+
+#five {
+  order: 4;
+}
+
+#six {
+  order: 5;
+}
+
+#equals {
+  order: 18;
+}
+
+#add {
+  order: 16;
+}
+
+#subtract {
+  order: 15;
+}
+
+#multiply {
+  order: 14;
+}
+
+#divide {
+  order: 13;
+}
+
+#erase {
+  order: -1;
+}
+
+#clear {
+  order: -2;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: black;
+  background-color: #0B1B22;
   color: #C3C3C3;
   box-sizing: content-box;
 }
@@ -15,12 +77,13 @@ code {
 
 #calculator {
   margin: 10px auto;
-  background-color: #20252D;
-  max-width: 600px;
+  padding: 5px;
+  background-color: #1C4154;
+  max-width: 460px;
   max-height: 800px;
   height: 60vh;
   width: 50vw;
-  border-radius: 2px;
+  border-radius: 2%;
 }
 
 #display {
@@ -28,45 +91,67 @@ code {
   font-weight: lighter;
   text-align: right;
   border-bottom: 1px solid rgba(195, 195, 195, 0.5333333333);
-  width: 85%;
+  width: 80%;
   margin: 0 auto;
-  background-color: blue;
 }
 
 #buttons-container {
-  margin: 10px auto;
   display: flex;
   flex-direction: row;
   height: 87%;
-  background-color: rgba(0, 255, 0, 0.4);
+  margin-top: 10px;
 }
 
 #number-div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   flex-wrap: wrap;
-  background-color: red;
-  width: 90%;
-  padding: 10px;
+  width: 80%;
 }
 
 .number {
-  width: 15%;
-  height: 30%;
+  width: 26%;
+  height: 18%;
+  flex: 0 0 auto;
+  margin: 12px;
+  border-radius: 70px;
+}
+
+button {
+  background-color: #0E212A;
+  color: #C3C3C3;
+  border: 0;
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.144);
+  transition: border 0.2s;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+button:hover {
+  border: 1px solid #C3C3C3;
+  box-shadow: none;
+}
+button:active {
+  border: 2px solid white;
 }
 
 .operator {
-  height: 10%;
-  width: 25%;
+  height: 20%;
+  width: 100%;
+  border-radius: 7px;
+  margin: 5px;
 }
 
 #operators-div {
   display: flex;
   flex-direction: column;
-  background-color: orange;
-  width: 10%;
+  width: 20%;
+  margin: 10px;
+  border-left: 1px solid #0E212AAA;
+  padding-left: 10px;
 }
 
 #equals {
-  color: #DC6CD9;
+  color: #252627;
+  background-color: #4497C1;
 }/*# sourceMappingURL=index.css.map */

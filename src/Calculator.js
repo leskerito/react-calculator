@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Buttons from './Buttons';
 
 export default function Calculator() {
@@ -25,12 +25,12 @@ export default function Calculator() {
 
     const evaluate = (dirtyArray) => {
         if(dirtyArray === undefined) return '0'
-        let cleanArray = sanitize(dirtyArray);
-        const expression = cleanArray.join('');
         try {
+            let cleanArray = sanitize(dirtyArray);
+            const expression = cleanArray.join('');
             return String(eval(expression))
-        } catch (error) {
-            console.error(error);
+        } catch (TypeError) {
+            alert("Are you sure about that expression?")
             return "0"
         }
     }
@@ -43,6 +43,34 @@ export default function Calculator() {
         return /^[-]{0,1}[0-9]+([.]+[0-9])*$/.test(entry);
     }
 
+    const typeHandler = (event) => {
+        var key = event.key
+        if(isOperator(key) || isNumber(key))
+            handleButton(key)
+        else switch(key){
+            case "Enter":
+                handleButton("=");
+                break;
+            case "Backspace":
+                handleButton("E");
+                break;
+            case "Delete":
+                handleButton("Clear");
+                break;
+            case '.':
+                handleButton('.');
+                break;
+            default:
+                console.log(key);
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener('keydown', typeHandler);
+
+        return () => document.removeEventListener('keydown', typeHandler)
+    });
+
     const handleButton = (entry) => {
         switch(entry){
             case '.':
@@ -51,7 +79,7 @@ export default function Calculator() {
             case 'E':
                 currentExpression.length > 1 ? setCurrentExpression(currentExpression.slice(0, -1)) : setCurrentExpression('0');
                 break;
-            case 'C':
+            case 'Clear':
                 setCurrentExpression('0');
                 setExpElements([]);
                 break;
@@ -95,8 +123,8 @@ export default function Calculator() {
             {currentExpression}
         </h1>
         <div id='buttons-container'>
-            <Buttons divType="number" buttonHandler={handleButton} />
-            <Buttons divType="operators" buttonHandler={handleButton} />
+            <Buttons divType="number" buttonHandler={handleButton} typeHandler={typeHandler}/>
+            <Buttons divType="operators" buttonHandler={handleButton} typeHandler={typeHandler}/>
         </div>
     </div>
   )
