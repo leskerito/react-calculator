@@ -30,9 +30,9 @@ either click on the buttons with a mouse/finger or enter them directly from the 
 
 #### functions 
 
-+ `**sanitize(dirtyArry: array)**`: Cleans an array of expression according to the rules of the exercise.
-+ `**evaluate(dirtyArray: array)**`: Evaluates the full array and returns the evaluated expression. To do so, it joins each cells of the array together and calls `eval` on the result.
-+ `**isOperator(entry: String)**`: Returns true if the string is *ONLY* an operator and does so using Regex. __Regex expression:__ `entry.match(/(^\+$)|(^-$)|(^\*$)|(^\/$)/)`
-+ `**isNumber(entry: String)**`: Returns true if the `entry` is a number, whether `int` or `float`, and does so using Regex. __Regex expression:__ `/^[-]{0,1}[0-9]+([.]+[0-9]+)*$/.test(entry)`
-+ `**typeHandler(event: String)**`: Calls `handleButton` according to the key (`event`) pressed by the user.
-+ `**handleButton(entry: String)**`: `onClick` behavior for all buttons. Handles any button pressed on the calculator. Updates the states `currentExpression` as well as the array of expression `expElements`.
++ **`sanitize(dirtyArry: array)`**: Cleans an array of expression according to the rules of the exercise.
++ **`evaluate(dirtyArray: array)`**: Evaluates the full array and returns the evaluated expression. To do so, it joins each cells of the array together and calls `eval` on the result.
++ **`isOperator(entry: String)`**: Returns true if the string is *ONLY* an operator and does so using Regex. __Regex expression:__ `entry.match(/(^\+$)|(^-$)|(^\*$)|(^\/$)/)`
++ **`isNumber(entry: String)`**: Returns true if the `entry` is a number, whether `int` or `float`, and does so using Regex. __Regex expression:__ `/^[-]{0,1}[0-9]+([.]+[0-9]+)*$/.test(entry)`
++ **`typeHandler(event: String)`**: Calls `handleButton` according to the key (`event`) pressed by the user.
++ **`handleButton(entry: String)`**: `onClick` behavior for all buttons. Handles any button pressed on the calculator. Updates the states `currentExpression` as well as the array of expression `expElements`.
