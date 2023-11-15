@@ -4,8 +4,8 @@ import { calc } from './calc.js'
 
 function Buttons({ divType, buttonHandler }) {
   var button = [];
-  var numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "decimal"]
-  var operators = ['add', 'subtract', 'multiply', 'divide', 'equals', 'erase', 'clear'];
+  const numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "decimal"]
+  const operators = ['add', 'subtract', 'multiply', 'divide', 'equals', 'erase', 'clear'];
 
   if(divType === "number"){
     for (let number in numbers){
